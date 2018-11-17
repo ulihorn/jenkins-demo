@@ -7,7 +7,7 @@ mkdir -p $HOME/.nuget
 
 if ! $(docker network inspect db >/dev/null 2>&1)
 then
-	docker network create db
+	docker network create db --attachable
 fi
 
 docker-compose -f docker-compose.yml -f ci/compose-dev-db.yml -p dev up -d --build
