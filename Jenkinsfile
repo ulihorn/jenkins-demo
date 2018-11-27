@@ -32,7 +32,7 @@ throttle(['throttleDocker']) {
           sh '''
             version=$(date +%Y%m%d%H%M)
             ./cd/publish.sh alpha registry:443 $version
-            export DOCKER_HOST="tcp://10.180.252.116:2375"
+            export DOCKER_HOST="tcp://192.168.1.53:2375"
             ./cd/deploy-swarm.sh alpha registry:443 $version
           '''
         }
