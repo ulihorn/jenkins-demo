@@ -31,9 +31,9 @@ throttle(['throttleDocker']) {
         stage('Deploy to Docker Swarm') {
           sh '''
             version=$(date +%Y%m%d%H%M)
-            ./cd/publish.sh alpha dtr.caleb.boxboat.net $version
+            ./cd/publish.sh alpha registry:443 $version
             export DOCKER_HOST="tcp://10.180.252.116:2375"
-            ./cd/deploy-swarm.sh alpha dtr.caleb.boxboat.net $version
+            ./cd/deploy-swarm.sh alpha registry:443 $version
           '''
         }
       }
